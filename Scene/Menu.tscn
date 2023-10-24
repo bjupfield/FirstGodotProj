@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://df3qaksnxio6a"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_q353e"]
+[ext_resource type="Script" path="res://Scripts/PlayButton.gd" id="2_ekqvw"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_q353e")
+
+[node name="DestroyButton" type="Button" parent="."]
+offset_left = 310.0
+offset_top = 353.0
+offset_right = 742.0
+offset_bottom = 480.0
+text = "Destroy"
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 387.0
+offset_top = 181.0
+offset_right = 719.0
+offset_bottom = 297.0
+text = "Start GamE"
+script = ExtResource("2_ekqvw")
+
+[connection signal="button_down" from="DestroyButton" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="PlayButton" to="PlayButton" method="_on_button_down"]

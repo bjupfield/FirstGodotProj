@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bymw3rxkrfsck"]
+
+[ext_resource type="Script" path="res://Scripts/Quitter.gd" id="1_5jgnl"]
+
+[node name="JumpinScene" type="Node2D"]
+
+[node name="Quitter" type="Button" parent="."]
+offset_left = 408.0
+offset_top = 188.0
+offset_right = 718.0
+offset_bottom = 394.0
+text = "Quit"
+script = ExtResource("1_5jgnl")
+
+[connection signal="button_down" from="Quitter" to="Quitter" method="_on_button_down"]
