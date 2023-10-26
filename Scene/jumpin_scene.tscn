@@ -1,15 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bymw3rxkrfsck"]
+[gd_scene load_steps=3 format=3 uid="uid://bymw3rxkrfsck"]
 
 [ext_resource type="Script" path="res://Scripts/Quitter.gd" id="1_5jgnl"]
+[ext_resource type="Script" path="res://Scene/LineEdit.gd" id="2_co6pa"]
 
 [node name="JumpinScene" type="Node2D"]
 
 [node name="Quitter" type="Button" parent="."]
-offset_left = 408.0
-offset_top = 188.0
-offset_right = 718.0
-offset_bottom = 394.0
+offset_left = 231.0
+offset_top = 180.0
+offset_right = 541.0
+offset_bottom = 386.0
 text = "Quit"
 script = ExtResource("1_5jgnl")
 
+[node name="LineEdit" type="LineEdit" parent="Quitter"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 12.0
+offset_right = 746.0
+offset_bottom = 43.0
+placeholder_text = "\"H\""
+script = ExtResource("2_co6pa")
+
 [connection signal="button_down" from="Quitter" to="Quitter" method="_on_button_down"]
+[connection signal="text_changed" from="Quitter/LineEdit" to="Quitter/LineEdit" method="_on_text_changed"]
