@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdgytm820aiy1"]
+
+[ext_resource type="Script" path="res://GameObjects/TextEditorForKeyBinding.gd" id="1_j6rci"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_peewl"]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+material = SubResource("CanvasItemMaterial_peewl")
+offset_right = 312.0
+offset_bottom = 22.0
+text = "TEXT"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("1_j6rci")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_top = -5.0
+offset_right = 321.0
+offset_bottom = 35.0
+color = Color(0.368627, 0.282353, 1, 1)

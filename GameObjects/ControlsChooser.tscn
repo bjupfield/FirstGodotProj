@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dxc2sei3hkcn"]
 
 [node name="ControlsChooser" type="ColorRect"]
-anchors_preset = -1
 offset_right = 450.0
 offset_bottom = 600.0
 color = Color(0.223529, 0.145098, 0.584314, 1)

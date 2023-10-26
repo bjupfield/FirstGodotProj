@@ -2,7 +2,7 @@ extends Button
 
 
 func _input(event):
-	self.text = event.as_text()
+	self.text = str(event.get_class())
 	pass
 	
 func _input_Mine(event):
