@@ -1,41 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://df3qaksnxio6a"]
+[gd_scene load_steps=4 format=3 uid="uid://df3qaksnxio6a"]
 
 [ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_q353e"]
 [ext_resource type="Script" path="res://Scripts/PlayButton.gd" id="2_ekqvw"]
 [ext_resource type="Script" path="res://Scripts/MenuButton.gd" id="3_834he"]
-[ext_resource type="PackedScene" uid="uid://bdgytm820aiy1" path="res://GameObjects/TextEditorForKeyBinding.tscn" id="4_ntwb1"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_q353e")
 
 [node name="DestroyButton" type="Button" parent="."]
-offset_left = 310.0
-offset_top = 353.0
-offset_right = 742.0
-offset_bottom = 480.0
+offset_left = 351.0
+offset_top = 434.0
+offset_right = 783.0
+offset_bottom = 561.0
 text = "Destroy"
 
 [node name="PlayButton" type="Button" parent="."]
-offset_left = 79.0
-offset_top = 100.0
-offset_right = 411.0
-offset_bottom = 216.0
+offset_left = 400.0
+offset_top = 140.0
+offset_right = 732.0
+offset_bottom = 256.0
 text = "Start GamE"
 script = ExtResource("2_ekqvw")
 
 [node name="MenuButton" type="Button" parent="."]
-offset_left = 895.0
-offset_top = 224.0
-offset_right = 1135.0
-offset_bottom = 316.0
+offset_left = 446.0
+offset_top = 299.0
+offset_right = 686.0
+offset_bottom = 391.0
 text = "Not Menu"
 script = ExtResource("3_834he")
-
-[node name="RichTextLabel" parent="." instance=ExtResource("4_ntwb1")]
-offset_left = 764.0
-offset_top = 544.0
-offset_right = 1076.0
-offset_bottom = 566.0
 
 [connection signal="button_down" from="DestroyButton" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="PlayButton" to="PlayButton" method="_on_button_down"]

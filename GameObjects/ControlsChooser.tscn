@@ -1,9 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxc2sei3hkcn"]
+[gd_scene load_steps=3 format=3 uid="uid://dxc2sei3hkcn"]
 
-[ext_resource type="Script" path="res://GameObjects/ControlsChooser.gd" id="1_vl4g7"]
+[ext_resource type="Script" path="res://Scripts/ControlsChooser.gd" id="1_06oam"]
+[ext_resource type="Script" path="res://Scripts/QuitParent.gd" id="2_uaicf"]
 
 [node name="ControlsChooser" type="ColorRect"]
 offset_right = 450.0
 offset_bottom = 600.0
 color = Color(0.223529, 0.145098, 0.584314, 1)
-script = ExtResource("1_vl4g7")
+script = ExtResource("1_06oam")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_right = 450.0
+offset_bottom = 60.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_uaicf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+clip_contents = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = -5.0
+offset_right = 74.0
+offset_bottom = 55.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "X"
+scroll_active = false
+text_direction = 1

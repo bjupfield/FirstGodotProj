@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://vko18rk46oo8"]
+
+[node name="ActionNameLabel" type="RichTextLabel"]
+offset_right = 29.0
+offset_bottom = 22.0
+text = "Hello"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 845.0
+offset_bottom = 513.0
+color = Color(0.247059, 0, 0.521569, 1)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mcae3wj0ke53"]
+
+[ext_resource type="PackedScene" uid="uid://vko18rk46oo8" path="res://GameObjects/ActionNameLabel.tscn" id="1_10m6n"]
+[ext_resource type="Script" path="res://ActionNameLabel.gd" id="2_6pvhb"]
+
+[node name="RealActionNameLabel" type="ColorRect"]
+offset_right = 80.0
+offset_bottom = 23.0
+color = Color(0.247059, 0, 0.521569, 1)
+
+[node name="ActionNameLabel" parent="." instance=ExtResource("1_10m6n")]
+layout_mode = 0
+script = ExtResource("2_6pvhb")

@@ -1,15 +1,19 @@
 extends RichTextLabel
 
 var eventName: String = ""
+var keyGood: bool = false
+var assignedKey: InputEvent
 var assigning: bool = false
 var upButtonAmount: int = 0
 # Called when the node enters the scene tree for the first time.
 func _input(event):
-	if(assigning and str(event.get_class()) != "InputEventMouseMotion" and (event.as_text() != "Left Mouse Button" or (event is InputEventMouseButton and event.pressed and upButtonAmount > 0))):
+	if(keyGood and assigning and str(event.get_class()) != "InputEventMouseMotion" and (event.as_text() != "Left Mouse Button" or (event is InputEventMouseButton and event.pressed and upButtonAmount > 0))):
 		assigning = false
 		upButtonAmount = 0
-		self.text = "|" + event.as_text() + "|"
+		self.text = event.as_text()
+		InputMap.action_erase_event(eventName, assignedKey)
 		InputMap.action_add_event(eventName, event)
+		assignedKey = event
 	else:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and !assigning:

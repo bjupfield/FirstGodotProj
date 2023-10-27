@@ -6,9 +6,9 @@
 [node name="JumpinScene" type="Node2D"]
 
 [node name="Quitter" type="Button" parent="."]
-offset_left = 842.0
+offset_left = 1002.0
 offset_right = 1152.0
-offset_bottom = 206.0
+offset_bottom = 91.0
 text = "Quit"
 script = ExtResource("1_5jgnl")
 
