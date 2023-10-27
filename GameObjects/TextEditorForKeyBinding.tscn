@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdgytm820aiy1"]
 
-[ext_resource type="Script" path="res://GameObjects/TextEditorForKeyBinding.gd" id="1_j6rci"]
+[ext_resource type="Script" path="res://Scripts/TextEditorForKeyBinding.gd" id="1_5h2ws"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_peewl"]
 
@@ -11,7 +11,7 @@ offset_bottom = 22.0
 text = "TEXT"
 scroll_active = false
 autowrap_mode = 0
-script = ExtResource("1_j6rci")
+script = ExtResource("1_5h2ws")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 show_behind_parent = true

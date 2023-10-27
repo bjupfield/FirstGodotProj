@@ -1,13 +1,9 @@
-[gd_scene format=3 uid="uid://dxc2sei3hkcn"]
+[gd_scene load_steps=2 format=3 uid="uid://dxc2sei3hkcn"]
+
+[ext_resource type="Script" path="res://GameObjects/ControlsChooser.gd" id="1_vl4g7"]
 
 [node name="ControlsChooser" type="ColorRect"]
 offset_right = 450.0
 offset_bottom = 600.0
 color = Color(0.223529, 0.145098, 0.584314, 1)
-
-[node name="LineEdit" type="LineEdit" parent="."]
-layout_mode = 0
-offset_left = 92.0
-offset_top = 99.0
-offset_right = 245.0
-offset_bottom = 130.0
+script = ExtResource("1_vl4g7")
