@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dks3luaw6npgj"]
+
+[ext_resource type="Texture2D" uid="uid://cpnlau17ky01m" path="res://Sprites/SlimeLeft.png" id="1_t1rq8"]
+[ext_resource type="Texture2D" uid="uid://cf7gjf4yixs7j" path="res://Sprites/SlimeRight.png" id="2_ktkqk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_t1rq8")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ktkqk")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}]

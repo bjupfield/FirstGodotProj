@@ -1,4 +1,4 @@
-extends ColorRect
+extends CharacterBody2D
 
 var movingLeft: bool = false
 var movingRight: bool = false
@@ -15,4 +15,10 @@ func _input(event):
 		movingRight = false
 
 func _physics_process(delta):
-	self.position.x += (1 if movingLeft else 0) * distanceToMove + (-1 if movingRight else 0) * distanceToMove
+	var xmove:float = (1 if movingLeft else 0) * distanceToMove + (-1 if movingRight else 0) * distanceToMove
+	var move:Vector2 = Vector2(xmove, 0)
+	#self.position.x += (1 if movingLeft else 0) * distanceToMove + (-1 if movingRight else 0) * distanceToMove
+	var collisionStuff:KinematicCollision2D = move_and_collide(move * distanceToMove * delta)
+	if collisionStuff:
+		print(collisionStuff.get_normal())
+		print(collisionStuff.get_collider().get("name"))# this shows that we are actually retrieviing the class instance, not just the class
