@@ -65,18 +65,13 @@ scale = Vector2(12.65, 1)
 
 [node name="Wall3" parent="." instance=ExtResource("4_cbu4n")]
 position = Vector2(193, 290)
-scale = Vector2(1.07471, 0.992552)
 collision_layer = 2
 
-[node name="Wall4" parent="." instance=ExtResource("4_cbu4n")]
-position = Vector2(183, 214)
-scale = Vector2(20, 1)
-
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 183.0
-offset_top = 295.0
-offset_right = 184.0
-offset_bottom = 296.0
+offset_left = 170.0
+offset_top = 310.0
+offset_right = 171.0
+offset_bottom = 311.0
 color = Color(1, 0, 0, 1)
 
 [connection signal="button_down" from="Quitter" to="Quitter" method="_on_button_down"]
