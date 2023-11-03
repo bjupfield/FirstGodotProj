@@ -46,6 +46,10 @@ func _input(event):
 		jump = false
 
 func _physics_process(delta):
+	#basic structure, check for playinput
+	#check for input that requires certain requirements like touching floor or wall, i.e. walljump, jump, and climb
+	#check if there is collision after correct input and direction is called
+	#apply movement
 	if movingLeft:
 		playerFacingRight = false
 	elif movingRight:
@@ -60,7 +64,6 @@ func _physics_process(delta):
 			var testColl:KinematicCollision2D = move_and_collide(Vector2(0, .2), true, .2, true)
 			if(testColl):
 				if(testColl.get_normal().y == -1):
-					print("HITHERE" + str(scamPos))
 					jumping = true
 					posChanged = false
 					#check for block underneath player, if so we set it to standard jump
@@ -70,23 +73,19 @@ func _physics_process(delta):
 				self.position = scamPos
 				
 	if((climbingKey || jump) && !jumping):#player is pressing climbing button check to see if he can climb
-		print("climbcheck")
 		if(posChanged):
 			#block has changed by int value
 			var scamPos:Vector2 = self.position
 			self.position = playerLastPos
 			var testColl:KinematicCollision2D = move_and_collide(Vector2(.5 * (1 if playerFacingRight else -1), 0), true, .2, true)
-			print((1 if playerFacingRight else -1))
 			if(testColl):
 				if(testColl.get_normal().x == (-1 if playerFacingRight else 1)):
-					print("collision climb")
 					if(jump):#if we jump or jump and climb we do a jump,this checks for wall jumps spcefically
 						jumping = true
 						wallJump = 1 if playerFacingRight else -1
 						self.position = scamPos
 						#check for block in direction that the player is facing if get hit set equal to true and give walljump 1 for right side and -1 for left side
 					else:
-						print("climbing true")
 						climable = true
 						#check for blcok in direction set climable to true if jump is not set tot true
 				else:
@@ -119,7 +118,6 @@ func _physics_process(delta):
 	elif climbing:
 		playerVelocity.x = 0
 		playerVelocity.y = (1 if movingDown else 0) * distanceToClimb + (-1 if movingUp else 0) * distanceToClimb
-		print("Climbing")
 	else:
 		if falling:#check if the character is falling and then add stuff
 			playerVelocity.y += playGravity * delta
@@ -136,7 +134,6 @@ func _physics_process(delta):
 		if testYColl:
 			var normal:Vector2 = testYColl.get_normal()
 			var collisionPoint:Vector2 = testYColl.get_position()
-			#print("Colliding: " + str(testColl.get_depth()) + str(self.position) + str(normal) + str(1 if playerVelocity.y > 0 else (-1 if playerVelocity.y < 0 else 0)) + "Veloc: " + str(playerVelocity.y))
 			if (normal.y != 0 && (normal.y + (1 if playerVelocity.y > 0 else (-1 if playerVelocity.y < 0 else 0))) == 0) :#checks if block is going into another, if this doesnt trigger it is going out of
 				noYTrueCollision = false
 				#if normal.y == -1:
@@ -147,7 +144,6 @@ func _physics_process(delta):
 				playerVelocity.y = 0
 					#if y collides set position to pixel above y collision, and set falling to false and player velocity to 0
 				#elif normal.y == 1:
-				#	print("Hi2")
 	if(playerVelocity.x != 0):
 		var testXColl:KinematicCollision2D = move_and_collide(Vector2(playerVelocity.x, 0) * delta, true, .2, true)
 		if testXColl:
@@ -167,9 +163,32 @@ func _physics_process(delta):
 			print("Hi there")
 	if noXTrueCollision:
 		self.position.x += playerVelocity.x * delta
+		print(0 if playerVelocity.x == 0 else (1 if playerVelocity.x > 0 else 2))
+		_animationControl(0 if playerVelocity.x == 0 else (1 if playerVelocity.x > 0 else 2))
 		
 	if !playerLastPos || playerLastPos != Vector2(int(self.position.x), int(self.position.y)):
-		#print("Update Pos")
 		playerLastPos = Vector2(int(self.position.x), int(self.position.y))
 		posChanged = true
-	#print("Pos" + str(self.position))
+	
+func _animationControl(direction:int):
+	#0 is default\idle
+	#1 is moving right
+	#2 is moving left
+	var animation:AnimatedSprite2D = self.get_child(0)
+	match direction:
+		0:
+			animation.position.x = 0
+			animation.animation = "IdleRight"
+			print("In here too?")
+		1:
+			print("rigting")
+			animation.position.x = 1
+			if(animation.animation != "WalkingRight"):
+				animation.play("WalkingRight")
+		2:#left
+			animation.position.x = 2
+			print("lefting")
+			if(animation.animation != "WalkingLeft"):
+				animation.play("WalkingLeft")
+		_:#default
+			animation.position.x = 0
